@@ -1,0 +1,49 @@
+# Caddy config for chalkmind.tech (VPS). Caddy obtains and renews HTTPS
+# certificates automatically.
+#
+# Install: copy public/ to /var/www/chalkmind, put this file at
+# /etc/caddy/Caddyfile, then:
+#   sudo systemctl reload caddy
+
+www.chalkmind.tech {
+	redir https://chalkmind.tech{uri} permanent
+}
+
+chalkmind.tech {
+	root * /var/www/chalkmind
+	encode zstd gzip
+
+	# Clean URLs: /privacy serves privacy.html
+	try_files {path} {path}.html {path}/
+	file_server
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		X-Frame-Options "DENY"
+		-Server
+	}
+
+	# Images and icons rarely change: cache for 30 days.
+	@static path *.png *.svg *.ico
+	header @static Cache-Control "public, max-age=2592000"
+	# HTML and CSS: short cache so updates show quickly.
+	@pages path / *.html *.css
+	header @pages Cache-Control "public, max-age=600"
+
+	handle_errors {
+		@notfound expression {err.status_code} == 404
+		rewrite @notfound /404.html
+		file_server
+	}
+}
+
+# Backend (Go service), once it exists:
+# api.chalkmind.tech {
+# 	encode zstd gzip
+# 	reverse_proxy 127.0.0.1:8080 {
+# 		flush_interval -1   # stream AI answers immediately
+# 	}
+# }

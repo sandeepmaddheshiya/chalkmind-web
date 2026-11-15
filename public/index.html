@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chalkmind: AI whiteboard that solves handwritten maths</title>
+  <meta name="description" content="Write a maths problem by hand and Chalkmind solves it in your handwriting, explains each step, checks working and lets you annotate PDFs. A whiteboard app for teachers and students on Android.">
+  <link rel="canonical" href="https://chalkmind.tech/">
+  <meta name="theme-color" content="#0b3b35">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    document.documentElement.classList.add('js');
+    addEventListener('DOMContentLoaded', function () {
+      var boards = document.querySelectorAll('[data-play]');
+      if (!('IntersectionObserver' in window)) { boards.forEach(function (b) { b.classList.add('play'); }); return; }
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('play'); io.unobserve(e.target); } });
+      }, { threshold: 0.35 });
+      boards.forEach(function (b) { io.observe(b); });
+    });
+  </script>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Chalkmind">
+  <meta property="og:title" content="Chalkmind: the whiteboard that understands your handwriting">
+  <meta property="og:description" content="Solve handwritten maths, get step-by-step explanations, and annotate PDFs. For teachers and students.">
+  <meta property="og:url" content="https://chalkmind.tech/">
+  <meta property="og:image" content="https://chalkmind.tech/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Chalkmind logo with the line: The whiteboard that understands your handwriting.">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://chalkmind.tech/#org",
+        "name": "Chalkmind",
+        "url": "https://chalkmind.tech/",
+        "logo": "https://chalkmind.tech/apple-touch-icon.png",
+        "email": "support@chalkmind.tech"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://chalkmind.tech/#site",
+        "url": "https://chalkmind.tech/",
+        "name": "Chalkmind",
+        "publisher": { "@id": "https://chalkmind.tech/#org" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Chalkmind",
+        "operatingSystem": "Android 7.0 or later",
+        "applicationCategory": "EducationalApplication",
+        "description": "A whiteboard app that solves handwritten maths, explains steps with an AI tutor, and lets teachers and students annotate PDFs.",
+        "url": "https://chalkmind.tech/",
+        "image": "https://chalkmind.tech/og-image.png",
+        "publisher": { "@id": "https://chalkmind.tech/#org" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is Chalkmind free?", "acceptedAnswer": { "@type": "Answer", "text": "Chalkmind is free to download. Writing, drawing, shapes, PDF annotation and on-device maths solving are free. AI features may have a daily usage limit." } },
+          { "@type": "Question", "name": "Does it work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes for the whiteboard: drawing, saving, PDF annotation and many maths problems are solved on the device. The AI tutor, PDF word look-up and harder problems need an internet connection." } },
+          { "@type": "Question", "name": "Which devices does it run on?", "acceptedAnswer": { "@type": "Answer", "text": "Android phones and tablets running Android 7.0 or later. It works best on a tablet with a stylus, and supports palm rejection." } },
+          { "@type": "Question", "name": "What happens to my boards and PDFs?", "acceptedAnswer": { "@type": "Answer", "text": "They are saved on your device. When you use an AI feature, only what you choose (a selection, a page, a photo or highlighted text) is sent to answer you. There are no ads." } },
+          { "@type": "Question", "name": "Which subjects does it help with?", "acceptedAnswer": { "@type": "Answer", "text": "Handwritten solving covers arithmetic, algebra, geometry, physics and chemistry problems. The AI tutor can explain, quiz and summarise material from any subject." } },
+          { "@type": "Question", "name": "Can teachers use it in class?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Teachers use it to explain on a tablet connected to a screen or projector, with a laser pointer, pages, PDFs and AI-made quizzes, worksheets and mind maps." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Chalkmind home"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#105E50"/><stop offset="1" stop-color="#08342E"/></linearGradient></defs><rect width="1024" height="1024" rx="230" fill="url(#lg)"/><polyline points="260,544 348,501 445,737 616,287 777,287" fill="none" stroke="#F8FAFC" stroke-width="79" stroke-linecap="round" stroke-linejoin="round"/><path d="M701 408 Q716 486 795 501 Q716 516 701 595 Q686 516 607 501 Q686 486 701 408Z" fill="#FACC15"/></svg><span>Chalkmind</span></a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#teachers">For teachers</a></li>
+      <li><a href="#students">For students</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn btn-primary btn-small" href="#get">Get early access</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Whiteboard app for Android</span>
+        <h1 id="hero-title">The whiteboard that <span class="ink">understands your handwriting.</span></h1>
+        <p class="lede">Write a maths problem the way you would on paper and finish it with “=”. Chalkmind works it out, writes the answer next to yours in handwriting, and shows the steps. Then ask it to explain, give a hint, or check a student’s working.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#get">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H4z"/><path d="M4 16l-1 4h18l-1-4"/><path d="M8 9l3 3 5-5"/></svg>
+            Join the beta
+          </a>
+          <a class="btn btn-ghost" href="#features">See what it does</a>
+        </div>
+        <p class="fineprint">Coming soon to Google Play · Android 7.0+ · Best on a tablet with a stylus</p>
+      </div>
+      <div class="board" data-play>
+    <svg viewBox="0 0 520 360" role="img" aria-labelledby="board-title board-desc">
+      <title id="board-title">Chalkmind solving a handwritten equation</title>
+      <desc id="board-desc">The equation 2x + 6 = 14 is written by hand. Chalkmind offers the answer and writes x = 4 in yellow, with two short working steps.</desc>
+      <path class="chalk draw" pathLength="1" style="--d:0.35s" d="M 44.1 57.9 C 47.7 47.1 69.9 42.8 68.7 59.0 C 68.2 70.8 50.1 83.8 37.1 100.0 Q 52.4 98.4 66.2 100.0"/>
+      <path class="chalk draw" pathLength="1" style="--d:0.61s" d="M 78.4 70.8 C 86.0 70.8 88.4 100.0 97.0 100.0"/>
+      <path class="chalk draw" pathLength="1" style="--d:0.87s" d="M 100.0 70.8 L 74.3 100.0"/>
+      <path class="chalk draw" pathLength="1" style="--d:1.13s" d="M 146.3 64.4 L 142.0 91.4"/>
+      <path class="chalk draw" pathLength="1" style="--d:1.39s" d="M 131.4 78.4 Q 144.5 77.3 157.4 77.9"/>
+      <path class="chalk draw" pathLength="1" style="--d:1.65s" d="M 216.6 48.2 C 202.1 51.4 191.2 67.6 189.2 81.6 C 187.4 94.6 193.1 100.0 200.7 100.0 C 209.3 100.0 214.6 93.5 215.6 86.0 C 216.8 77.3 211.1 71.9 203.6 71.9 C 197.1 71.9 191.1 76.2 189.6 82.7"/>
+      <path class="chalk draw" pathLength="1" style="--d:1.91s" d="M 249.5 71.9 Q 261.5 70.8 273.8 71.4"/>
+      <path class="chalk draw" pathLength="1" style="--d:2.17s" d="M 247.8 83.8 Q 259.8 82.7 272.2 83.3"/>
+      <path class="chalk draw" pathLength="1" style="--d:2.43s" d="M 308.1 57.9 Q 316.4 52.5 321.7 46.0 L 314.1 100.0"/>
+      <path class="chalk draw" pathLength="1" style="--d:2.69s" d="M 354.6 46.0 L 329.6 81.6 L 358.3 81.6"/>
+      <path class="chalk draw" pathLength="1" style="--d:2.95s" d="M 353.4 62.2 L 348.1 100.0"/>
+      <g class="board-pill fade" style="--d:3.56s">
+        <rect x="36" y="122" width="268" height="38" rx="19"/>
+        <text x="54" y="147">✓ x = 4   ·   Write answer   ·   Steps</text>
+      </g>
+      <path class="chalk answer draw" pathLength="1" style="--d:4.31s" d="M 42.2 202.8 C 49.8 202.8 52.2 232.0 60.8 232.0"/>
+      <path class="chalk answer draw" pathLength="1" style="--d:4.59s" d="M 63.8 202.8 L 38.2 232.0"/>
+      <path class="chalk answer draw" pathLength="1" style="--d:4.87s" d="M 96.6 203.9 Q 108.7 202.8 121.0 203.4"/>
+      <path class="chalk answer draw" pathLength="1" style="--d:5.15s" d="M 95.0 215.8 Q 107.0 214.7 119.3 215.3"/>
+      <path class="chalk answer draw" pathLength="1" style="--d:5.43s" d="M 176.4 178.0 L 151.4 213.6 L 180.1 213.6"/>
+      <path class="chalk answer draw" pathLength="1" style="--d:5.71s" d="M 175.2 194.2 L 169.9 232.0"/>
+      <g class="board-note fade" style="--d:6.29s">
+        <text class="h" x="36" y="282">STEPS</text>
+        <text x="36" y="308">1.  2x = 14 − 6 = 8</text>
+        <text x="36" y="334">2.  x = 8 ÷ 2 = 4</text>
+      </g>
+    </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" aria-label="Highlights">
+    <div class="wrap">
+      <ul>
+        <li>Works offline for writing and drawing</li>
+        <li>Stylus palm rejection</li>
+        <li>Import and annotate PDFs</li>
+        <li>No ads</li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="features" aria-labelledby="features-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Features</span>
+        <h2 id="features-title">Everything you write becomes something you can learn from</h2>
+        <p>Chalkmind feels like a normal whiteboard: pen, highlighter, eraser, pages. It also understands what you write.</p>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Solve maths you write by hand</h3>
+          <p>Write an equation, an identity or a geometry problem and end it with “=”. Simple sums are solved instantly on the device; harder ones, like the triangle here, are read and solved by the AI.</p>
+          <ul>
+            <li>Answers appear in handwriting that matches yours, on your line and at your angle</li>
+            <li>Step-by-step working you can put on the board with one tap</li>
+            <li>Plot equations as graphs right next to the working</li>
+            <li>Also handles physics and chemistry, like balancing equations</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="board" style="aspect-ratio:340/300">
+      <svg viewBox="0 0 340 300" role="img" aria-label="A right triangle with sides 3 and 4. Chalkmind answers x = 5 in yellow.">
+        <path class="chalk" d="M70 230 L70 70 L280 230 Z"/><path class="chalk" d="M70 206 L94 206 L94 230" style="stroke-width:2.4"/><path class="chalk" d="M 39.5 136.1 C 45.1 130.6 55.9 131.3 54.0 139.5 C 52.5 145.6 46.8 147.6 42.7 147.6 C 51.5 147.6 54.2 153.1 52.8 157.8 C 50.9 166.7 38.5 168.0 35.3 161.2"/><path class="chalk" d="M 180.4 246.0 L 164.6 268.4 L 182.7 268.4"/> <path class="chalk" d="M 179.6 256.2 L 176.3 280.0"/><path class="chalk" d="M 199.9 133.6 C 204.7 133.6 206.2 152.0 211.6 152.0"/> <path class="chalk" d="M 213.5 133.6 L 197.4 152.0"/> <path class="chalk" d="M 234.2 134.3 Q 241.8 133.6 249.5 134.0"/> <path class="chalk" d="M 233.1 141.8 Q 240.7 141.1 248.5 141.5"/><path class="chalk answer" d="M 270.7 118.7 L 267.4 133.0 C 274.1 128.9 283.3 130.9 281.5 141.1 C 279.8 151.3 267.2 153.4 263.3 147.2"/> <path class="chalk answer" d="M 270.7 118.7 L 283.8 118.0"/>
+      </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>An AI tutor that looks at the board</h3>
+          <p>Circle any part of the board and ask about it. The assistant sees exactly what you selected, so the answer is about your problem, not a generic one.</p>
+          <ul>
+            <li><b>Check my work</b> finds the first mistake and shows the fix</li>
+            <li><b>Hint</b> nudges towards the next step without giving the answer away</li>
+            <li><b>Explain</b>, practice questions, quizzes, flashcards and revision notes</li>
+            <li>Snap a photo of a textbook question to have it explained</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="mock" role="img" aria-label="The AI assistant pointing out the first mistake in a student's working">
+            <div class="mock-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.5V14"/><path d="M12 17h.01"/></svg>
+              AI Assistant · Selection
+            </div>
+            <div class="chips"><span class="chip">Explain</span><span class="chip on">Check my work</span><span class="chip">Hint</span><span class="chip">Quiz</span></div>
+            <div class="bubble user">Check my work</div>
+            <div class="bubble ai">The first mistake is on <span class="mark">line 2: 14 − 6 is 8, not 7.</span> So 2x = 8, and dividing both sides by 2 gives x = 4. The rest of your method is right.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Highlight a word in a PDF to understand it</h3>
+          <p>Import worksheets, notes or a textbook chapter and write straight on top. Highlight a word and Chalkmind gives its meaning in that sentence. Highlight a paragraph and it explains it in simple language.</p>
+          <ul>
+            <li>Pages open as you reach them, so even long PDFs import quickly</li>
+            <li>Works on scanned pages too</li>
+            <li>Add the explanation to the page as a note</li>
+            <li>Export annotated pages as PDF or images</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="paper">
+            <h4>Photosynthesis</h4>
+            Plants use sunlight, water and carbon dioxide to make glucose. This takes place in the <span class="hl">chloroplasts</span> of leaf cells, where chlorophyll absorbs light energy.
+            <div class="lookup" role="img" aria-label="Look-up card explaining the word chloroplasts">
+              <b>chloroplasts <span class="pos">(noun)</span></b>
+              Tiny structures in plant cells where photosynthesis happens. They contain chlorophyll, which captures light.
+              <div class="acts"><span class="on">Meaning</span><span>Explain</span><span>Add as note</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Flowcharts and mind maps you can edit</h3>
+          <p>Type a topic and get a flowchart, mind map or concept map drawn on the board, made of real shapes and text. Move a box, rename a step or add your own arrows.</p>
+          <ul>
+            <li>Good for processes, cycles, timelines and revision maps</li>
+            <li>One undo removes it if it isn’t what you wanted</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="mock">
+            <svg viewBox="0 0 420 250" role="img" aria-label="A flowchart of the water cycle: evaporation, condensation, precipitation, collection">
+              <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#374151"/></marker></defs>
+              <g font-family="system-ui, sans-serif" font-size="14" font-weight="600" text-anchor="middle">
+                <text x="210" y="24" font-size="15" fill="#0b3b35">The water cycle</text>
+                <rect x="20" y="48" width="150" height="48" rx="10" fill="#e9f6f2" stroke="#105e50" stroke-width="2"/><text x="95" y="77" fill="#14201d">Evaporation</text>
+                <rect x="250" y="48" width="150" height="48" rx="10" fill="#e9f6f2" stroke="#105e50" stroke-width="2"/><text x="325" y="77" fill="#14201d">Condensation</text>
+                <rect x="250" y="176" width="150" height="48" rx="10" fill="#e9f6f2" stroke="#105e50" stroke-width="2"/><text x="325" y="205" fill="#14201d">Precipitation</text>
+                <rect x="20" y="176" width="150" height="48" rx="10" fill="#e9f6f2" stroke="#105e50" stroke-width="2"/><text x="95" y="205" fill="#14201d">Collection</text>
+              </g>
+              <g stroke="#374151" stroke-width="2" fill="none" marker-end="url(#ah)">
+                <path d="M172 72H246"/><path d="M325 98V172"/><path d="M248 200H174"/><path d="M95 174V100"/>
+              </g>
+              <text x="210" y="142" font-family="system-ui, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle" font-style="italic">drawn as editable shapes</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Ink that behaves like a real board</h3>
+          <p>Fast, smooth writing with a stylus or a finger, and the tools a lesson needs.</p>
+          <ul>
+            <li>Rough circles, boxes and arrows snap into neat shapes</li>
+            <li>Erase whole strokes, or only the part you touch</li>
+            <li>Pages or an endless canvas; plain, ruled, grid and dark boards</li>
+            <li>Laser pointer, undo per page, copy and paste, autosave</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <div class="mock">
+            <svg viewBox="0 0 420 230" role="img" aria-label="A rough hand-drawn circle with a suggestion to convert it into a neat circle">
+              <path d="M126 50c-30 2-58 18-68 46-9 27 4 54 30 66 26 13 64 12 88-4 22-14 30-40 22-62-9-25-38-44-70-46-14-1-27 3-36 10" fill="none" stroke="#14201d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M214 108h40" stroke="#9ca3af" stroke-width="2.5" stroke-dasharray="5 6" stroke-linecap="round"/>
+              <path d="M250 100l8 8-8 8" fill="none" stroke="#9ca3af" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="330" cy="108" r="60" fill="none" stroke="#14201d" stroke-width="3.5"/>
+              <g font-family="system-ui, sans-serif" font-size="13" font-weight="700">
+                <rect x="58" y="186" width="304" height="36" rx="18" fill="#0b3b35"/>
+                <text x="80" y="209" fill="#f8fafc">Convert to circle?</text>
+                <rect x="210" y="192" width="74" height="24" rx="12" fill="#facc15"/>
+                <text x="247" y="209" fill="#14201d" text-anchor="middle">Convert</text>
+                <rect x="290" y="192" width="62" height="24" rx="12" fill="none" stroke="#c9ddd6" stroke-width="1.5"/>
+                <text x="321" y="209" fill="#f8fafc" text-anchor="middle">Keep</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="audience" aria-labelledby="audience-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Who it’s for</span>
+        <h2 id="audience-title">Built for both sides of the classroom</h2>
+      </div>
+      <div class="two-col">
+        <article class="card" id="teachers">
+          <h3>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v11H3z"/><path d="M8 21h8M12 16v5"/></svg>
+            Teachers
+          </h3>
+          <ul>
+            <li>Teach from a tablet on the projector, with a laser pointer and clean pages</li>
+            <li>Put a worksheet PDF on screen and solve it live</li>
+            <li>Make a quiz, worksheet or lesson plan from the topic you are teaching</li>
+            <li>Turn a messy explanation into a neat flowchart for revision</li>
+            <li>Export the lesson as a PDF to share with the class</li>
+          </ul>
+        </article>
+        <article class="card" id="students">
+          <h3>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8l10-4 10 4-10 4z"/><path d="M6 10v5c3 2 9 2 12 0v-5"/></svg>
+            Students
+          </h3>
+          <ul>
+            <li>Work through homework and ask for a hint when you are stuck</li>
+            <li>Check your working before you hand it in</li>
+            <li>Highlight words you don’t know in your notes or textbook PDF</li>
+            <li>Turn a chapter into flashcards and practice questions for revision</li>
+            <li>Keep tidy notes with shapes, graphs and diagrams</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">How it works</span>
+        <h2 id="how-title">Write, ask, understand</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Write</h3><p>Use the pen like you would on paper or a whiteboard. Import a PDF if you are working from a sheet or a book.</p></li>
+        <li><h3>Ask</h3><p>End a problem with “=”, or select anything and pick Explain, Hint, Check my work or Quiz.</p></li>
+        <li><h3>Understand</h3><p>Get the answer in handwriting, the steps, and an explanation you can keep on the board.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="privacy-band" aria-labelledby="privacy-title">
+    <div class="wrap">
+      <h2 id="privacy-title">Your boards stay on your device</h2>
+      <p>Lessons, notes and PDFs are saved on your tablet or phone. When you use an AI feature, only what you choose (your selection, a page, a photo or highlighted text) is sent to answer you. There are no ads. Read the <a href="/privacy">privacy policy</a>.</p>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">FAQ</span>
+        <h2 id="faq-title">Questions</h2>
+      </div>
+      <details><summary>Is Chalkmind free?</summary><p>Chalkmind is free to download. Writing, drawing, shapes, PDF annotation and on-device maths solving are free. AI features may have a daily usage limit.</p></details>
+      <details><summary>Does it work offline?</summary><p>Yes for the whiteboard: drawing, saving, PDF annotation and many maths problems are solved on the device. The AI tutor, PDF word look-up and harder problems need an internet connection.</p></details>
+      <details><summary>Which devices does it run on?</summary><p>Android phones and tablets running Android 7.0 or later. It works best on a tablet with a stylus, and supports palm rejection.</p></details>
+      <details><summary>What happens to my boards and PDFs?</summary><p>They are saved on your device. When you use an AI feature, only what you choose (a selection, a page, a photo or highlighted text) is sent to answer you. There are no ads.</p></details>
+      <details><summary>Which subjects does it help with?</summary><p>Handwritten solving covers arithmetic, algebra, geometry, physics and chemistry problems. The AI tutor can explain, quiz and summarise material from any subject.</p></details>
+      <details><summary>Can teachers use it in class?</summary><p>Yes. Teachers use it to explain on a tablet connected to a screen or projector, with a laser pointer, pages, PDFs and AI-made quizzes, worksheets and mind maps.</p></details>
+    </div>
+  </section>
+
+  <section class="final" id="get" aria-labelledby="get-title">
+    <div class="wrap">
+      <h2 id="get-title">Be one of the first to use Chalkmind</h2>
+      <p class="lede">Chalkmind is in testing before its Google Play launch. Teachers and students who join the beta get early access and a direct line to shape what comes next.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:support@chalkmind.tech?subject=Chalkmind%20beta&amp;body=Hi%2C%20I%27d%20like%20to%20join%20the%20Chalkmind%20beta.%0A%0AI%20am%20a%20(teacher%20%2F%20student%20%2F%20parent)%3A%20%0AMy%20Android%20device%3A%20%0AGoogle%20Play%20email%3A%20">Join the beta by email</a>
+      </div>
+      <p class="fineprint" style="color:var(--ink-2)">We’ll reply with a link to install from Google Play’s testing programme.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <span>© <span>2026</span> Chalkmind</span>
+    <nav aria-label="Footer">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/support">Support</a>
+      <a href="mailto:support@chalkmind.tech">support@chalkmind.tech</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
