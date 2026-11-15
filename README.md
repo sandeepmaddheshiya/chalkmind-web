@@ -27,17 +27,32 @@ Static HTML/CSS (no framework, no web fonts). About 12 KB compressed on first lo
 cd public && python3 -m http.server 8000   # open http://localhost:8000
 ```
 
-## Deploy on the VPS
+## Deploy on the VPS (nginx, alongside other sites)
+
+The VPS already runs other sites behind nginx, so this site is just one more
+nginx server block serving static files. No pm2/Node process is needed, and
+other sites are not touched.
 
 ```sh
-sudo apt install caddy                      # https://caddyserver.com/docs/install
-sudo mkdir -p /var/www/chalkmind
-rsync -av --delete public/ user@VPS:/var/www/chalkmind/
-sudo cp Caddyfile /etc/caddy/Caddyfile && sudo systemctl reload caddy
+# 1. Files (first time)
+sudo git clone https://github.com/sandeepmaddheshiya/chalkmind-web.git /var/www/chalkmind-web
+
+# 2. nginx site
+sudo cp /var/www/chalkmind-web/deploy/nginx-chalkmind.tech.conf /etc/nginx/sites-available/chalkmind.tech
+sudo ln -s /etc/nginx/sites-available/chalkmind.tech /etc/nginx/sites-enabled/chalkmind.tech
+sudo nginx -t && sudo systemctl reload nginx     # reload = no downtime for other sites
+
+# 3. HTTPS (after DNS A records point to the VPS)
+sudo certbot --nginx -d chalkmind.tech -d www.chalkmind.tech
 ```
 
-DNS: point `chalkmind.tech` and `www.chalkmind.tech` (A/AAAA records) to the VPS
-before reloading Caddy, so it can obtain the HTTPS certificate.
+Update the live site later:
+
+```sh
+cd /var/www/chalkmind-web && sudo git pull
+```
+
+(`Caddyfile` is an alternative for a server that runs Caddy instead of nginx.)
 
 ## Before launch
 
