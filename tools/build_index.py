@@ -5,6 +5,7 @@ Run from the repo root:  python3 tools/build_index.py
 import os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from handwriting_svg import strokes, width
+import site_parts as sp
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 LOGO = open(os.path.join(ROOT, 'public', 'favicon.svg')).read().strip().replace(
@@ -55,5 +56,12 @@ geo_svg = f'''<svg viewBox="0 0 340 300" role="img" aria-label="A right triangle
 
 html = open(os.path.join(os.path.dirname(__file__), 'index.template.html')).read()
 html = html.replace('{{LOGO}}', LOGO).replace('{{HERO_BOARD}}', hero_svg).replace('{{GEOMETRY}}', geo_svg)
+html = (html.replace('{{HEADER}}', sp.header()).replace('{{FOOTER}}', sp.footer())
+        .replace('{{JOIN}}', sp.join_section('Be one of the first to use Chalkmind',
+                 'Chalkmind is in testing before its Google Play launch. Join the early-access list and we’ll '
+                 'email you an install link when it’s your turn. One email, no spam.'))
+        .replace('{{CTA_HREF}}', sp.cta_href()).replace('{{CTA_LABEL}}', sp.cta_label()))
+assert '{{' not in html, 'unfilled placeholder in index template'
+
 open(os.path.join(ROOT, 'public', 'index.html'), 'w').write(html)
 print('public/index.html written:', len(html.encode()), 'bytes; problem width', round(width('2x + 6 = 14', 54)))

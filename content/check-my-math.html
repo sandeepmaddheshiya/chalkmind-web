@@ -1,0 +1,139 @@
+<!--meta
+{
+ "path": "/check-my-math",
+ "title": "Check My Math Work: Find the First Mistake in Your Working | Chalkmind",
+ "description": "Write your maths solution by hand and Chalkmind finds the first line that’s wrong, explains the mistake and shows the fix, without giving away every answer.",
+ "h1": "Check your maths and <span class=\"ink\">find the first mistake</span>",
+ "lede": "Write your solution the way you would on paper, select it and tap Check my work. Chalkmind reads every line, points to the first one that goes wrong, and explains why.",
+ "eyebrow": "Check my work",
+ "label": "Check my maths work",
+ "kicker": "Feature",
+ "teaser": "Finds the first wrong line in handwritten working and explains the fix.",
+ "visual": "check",
+ "cta2": [
+  "See an example",
+  "#example"
+ ],
+ "role": "student",
+ "priority": "0.9",
+ "related": [
+  "/guides/how-to-check-your-math-homework",
+  "/handwritten-math-solver",
+  "/for/students",
+  "/for/parents"
+ ],
+ "faq": [
+  [
+   "Does it just tell me the right answer?",
+   "It tells you where your working first goes wrong and why, then shows how that step should look. You can ask for a hint instead if you want to fix the rest yourself."
+  ],
+  [
+   "Can it check working it can't read?",
+   "If a line is hard to read, the explanation says what it read so you can rewrite it. Clear, separate lines give the best results."
+  ],
+  [
+   "Which subjects can it check?",
+   "Algebra, arithmetic, geometry, physics calculations and chemistry, such as balancing equations or mole calculations."
+  ],
+  [
+   "Can teachers use it to mark work?",
+   "Teachers use it on the board to show a class where a typical solution goes wrong. It's not a marking system and doesn't store student results."
+  ],
+  [
+   "Is checking work free?",
+   "Check my work is an AI feature. It needs a free sign-in and counts towards the daily free AI answers; Chalkmind Plus gives you many more."
+  ],
+  [
+   "Will it check every line, or just the answer?",
+   "Every line. It looks for the first line that doesn't follow from the one before, which is usually where the real misunderstanding is."
+  ]
+ ]
+}
+-->
+<section class="block" id="example">
+  <div class="wrap narrow prose" style="padding:0">
+    <span class="kicker">Example</span>
+    <h2 style="margin-top:.2em">A typical slip, caught</h2>
+    <p>A student solves <span class="formula">3(x − 2) = 2x + 5</span> and gets <span class="formula">x = 7</span>. The final answer is wrong, but the real problem is earlier:</p>
+    <div class="example"><b>Student's working</b>
+      <ol>
+        <li><span class="formula">3(x − 2) = 2x + 5</span></li>
+        <li class="wrong"><span class="formula">3x − 2 = 2x + 5</span> ← first mistake</li>
+        <li><span class="formula">x = 7</span></li>
+      </ol>
+    </div>
+    <div class="example"><b>What Chalkmind says</b>
+      <p>The first mistake is on line 2. When you expand <span class="formula">3(x − 2)</span>, the 3 multiplies both terms, so it's <span class="formula">3x − 6</span>. Then <span class="formula">3x − 6 = 2x + 5</span> gives <span class="formula">x = 11</span>. Check by substituting: <span class="formula">3(11 − 2) = 27</span> and <span class="formula">2(11) + 5 = 27</span>. ✓</p>
+    </div>
+    <p>Because it names the exact step, the student learns the rule they broke (distribute to every term) instead of just copying a corrected answer.</p>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Why the first mistake</span>
+      <h2>One clear correction beats a page of red ink</h2>
+      <p>When one early line is wrong, every line after it is “wrong” too, even when the method is right. Pointing at the first error tells you what actually needs fixing.</p>
+    </div>
+    <div class="points">
+      <div class="point"><h3>Sign and bracket slips</h3><p>Dropped negatives, half-expanded brackets and terms moved across the equals sign without changing sign.</p></div>
+      <div class="point"><h3>Arithmetic errors</h3><p>A wrong subtraction on line 2 that quietly ruins a correct method. Chalkmind says which number is off.</p></div>
+      <div class="point"><h3>Method gaps</h3><p>Dividing only one term by a number, or squaring a sum term by term. It explains the rule, not just the fix.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="feature">
+      <div>
+        <h3>How to use it</h3>
+        <ol>
+          <li>Write your full working, one step per line.</li>
+          <li>Use <b>Select</b> to circle the problem and your working.</li>
+          <li>Open the AI Assistant and tap <b>Check my work</b>.</li>
+          <li>Read the explanation, fix the line, and check again if you like.</li>
+        </ol>
+        <p>Prefer to find it yourself? Tap <b>Hint</b> for a nudge, or read our guide on <a href="/guides/how-to-check-your-math-homework">how to check maths homework without an app</a>.</p>
+      </div>
+      <div class="card">
+        <h3>Good for</h3>
+        <ul>
+          <li>Students checking homework before handing it in</li>
+          <li>Parents helping with a method they learned differently</li>
+          <li>Teachers showing a class a common mistake on the projector</li>
+          <li>Tutors reviewing a student's working live</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- data-expanded -->
+<section class="block alt">
+  <div class="wrap narrow prose" style="padding:0">
+    <h2 style="margin-top:0">More examples of mistakes it explains</h2>
+    <div class="example"><b>Fractions</b>
+      <p>Working: <span class="formula">1/2 + 1/3 = 2/5</span></p>
+      <p>Feedback: you can't add the tops and bottoms separately. Use a common denominator: <span class="formula">3/6 + 2/6 = 5/6</span>.</p>
+    </div>
+    <div class="example"><b>Indices</b>
+      <p>Working: <span class="formula">x³ × x⁴ = x¹²</span></p>
+      <p>Feedback: when multiplying powers of the same base, add the indices: <span class="formula">x³ × x⁴ = x⁷</span>. Multiplying them applies to <span class="formula">(x³)⁴ = x¹²</span>.</p>
+    </div>
+    <div class="example"><b>Physics units</b>
+      <p>Working: a car travels 90 km in 45 minutes, so speed = 90 ÷ 45 = 2 km/h.</p>
+      <p>Feedback: 45 minutes is 0.75 hours. Speed = 90 ÷ 0.75 = 120 km/h (or 2 km per minute).</p>
+    </div>
+    <!--cta-->
+    <h2>Tips for the clearest feedback</h2>
+    <ul>
+      <li>Write one step per line, so each line can be checked against the one before.</li>
+      <li>Include the question in your selection, so the check knows what you were solving.</li>
+      <li>Don't erase wrong attempts if you want to know why they were wrong; select them too.</li>
+      <li>After fixing a mistake, check again: a second mistake later in the working will then show up.</li>
+    </ul>
+    <h2>Accuracy</h2>
+    <p>Check my work is powered by AI, which can occasionally misread handwriting or make an error. The explanation always says what it read and why it thinks a line is wrong, so you can judge for yourself. Substituting your final answer back into the question is a good second check, and you can report any wrong feedback in the app.</p>
+  </div>
+</section>

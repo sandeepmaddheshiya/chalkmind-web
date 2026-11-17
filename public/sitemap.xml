@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://chalkmind.tech/</loc><lastmod>2026-11-15</lastmod><priority>1.0</priority></url>
-  <url><loc>https://chalkmind.tech/support</loc><lastmod>2026-11-15</lastmod><priority>0.6</priority></url>
-  <url><loc>https://chalkmind.tech/privacy</loc><lastmod>2026-11-15</lastmod><priority>0.3</priority></url>
-  <url><loc>https://chalkmind.tech/terms</loc><lastmod>2026-11-15</lastmod><priority>0.3</priority></url>
+  <url><loc>https://chalkmind.tech</loc><lastmod>2026-11-17</lastmod><priority>1.0</priority></url>
+  <url><loc>https://chalkmind.tech/ai-whiteboard</loc><lastmod>2026-11-17</lastmod><priority>0.9</priority></url>
+  <url><loc>https://chalkmind.tech/check-my-math</loc><lastmod>2026-11-17</lastmod><priority>0.9</priority></url>
+  <url><loc>https://chalkmind.tech/chemical-equation-balancer</loc><lastmod>2026-11-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chalkmind.tech/compare/microsoft-whiteboard-alternative</loc><lastmod>2026-11-17</lastmod><priority>0.9</priority></url>
+  <url><loc>https://chalkmind.tech/compare/photomath-alternative</loc><lastmod>2026-11-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chalkmind.tech/for/parents</loc><lastmod>2026-11-17</lastmod><priority>0.7</priority></url>
+  <url><loc>https://chalkmind.tech/for/students</loc><lastmod>2026-11-17</lastmod><priority>0.9</priority></url>
+  <url><loc>https://chalkmind.tech/for/teachers</loc><lastmod>2026-11-17</lastmod><priority>0.9</priority></url>
+  <url><loc>https://chalkmind.tech/for/tutors</loc><lastmod>2026-11-17</lastmod><priority>0.7</priority></url>
+  <url><loc>https://chalkmind.tech/guides</loc><lastmod>2026-11-17</lastmod><priority>0.7</priority></url>
+  <url><loc>https://chalkmind.tech/guides/best-apps-for-handwritten-notes-on-android</loc><lastmod>2026-11-17</lastmod><priority>0.9</priority></url>
+  <url><loc>https://chalkmind.tech/guides/best-whiteboard-app-for-teaching</loc><lastmod>2026-11-17</lastmod><priority>0.9</priority></url>
+  <url><loc>https://chalkmind.tech/guides/how-to-balance-chemical-equations</loc><lastmod>2026-11-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chalkmind.tech/guides/how-to-check-your-math-homework</loc><lastmod>2026-11-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chalkmind.tech/guides/how-to-take-notes-on-a-tablet</loc><lastmod>2026-11-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chalkmind.tech/guides/how-to-teach-math-online-with-a-tablet</loc><lastmod>2026-11-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chalkmind.tech/handwritten-math-solver</loc><lastmod>2026-11-17</lastmod><priority>0.9</priority></url>
+  <url><loc>https://chalkmind.tech/handwritten-notes</loc><lastmod>2026-11-17</lastmod><priority>0.9</priority></url>
+  <url><loc>https://chalkmind.tech/mind-map-maker</loc><lastmod>2026-11-17</lastmod><priority>0.7</priority></url>
+  <url><loc>https://chalkmind.tech/pdf-annotation</loc><lastmod>2026-11-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://chalkmind.tech/privacy</loc><lastmod>2026-11-17</lastmod><priority>0.3</priority></url>
+  <url><loc>https://chalkmind.tech/subjects/algebra</loc><lastmod>2026-11-17</lastmod><priority>0.7</priority></url>
+  <url><loc>https://chalkmind.tech/subjects/geometry</loc><lastmod>2026-11-17</lastmod><priority>0.7</priority></url>
+  <url><loc>https://chalkmind.tech/support</loc><lastmod>2026-11-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://chalkmind.tech/terms</loc><lastmod>2026-11-17</lastmod><priority>0.3</priority></url>
 </urlset>

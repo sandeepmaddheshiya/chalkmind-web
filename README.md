@@ -15,16 +15,42 @@ Static HTML/CSS (no framework, no web fonts). About 12 KB compressed on first lo
 
 ## Edit
 
-- Landing page text: edit `tools/index.template.html`, then run `python3 tools/build_index.py`
-  (the chalkboard handwriting is generated from the app's own glyphs).
+Every page except the home page is generated from `content/`:
+
+| Folder | Pages |
+|---|---|
+| `content/*.html` | Feature pages (`/handwritten-math-solver`, `/check-my-math`, …), legal pages, `/thanks` |
+| `content/for/` | Audience pages: teachers, students, tutors, parents |
+| `content/subjects/` | Algebra, geometry |
+| `content/compare/` | Honest comparisons (dated; re-check competitors' sites before editing) |
+| `content/guides/` | Long guides; `/guides` lists them automatically |
+| `content/_visuals/` | Hero illustrations (`{{HW|2x = 4|x|y|size|class}}` draws handwriting) |
+
+Each file starts with a JSON `<!--meta … -->` block (path, title, description, h1, lede, FAQ, related pages,
+`role` for the sign-up form), followed by the page HTML. `<!--cta-->` inside a guide inserts a call-to-action box.
+
+```sh
+python3 tools/build_site.py     # builds every page, the home page and sitemap.xml
+```
+
+- Home page text: `tools/index.template.html` (built by the same command).
+- Shared header, footer and early-access form: `tools/site_parts.py`.
+- **When the app is on Google Play:** set `PLAY_URL` in `tools/site_parts.py` and rebuild. Every
+  “Get early access” button and form becomes a Google Play link.
 - Social image and touch icons: `python3 tools/generate_images.py` (needs Pillow).
-  `tools/chalkmind_icon.py` is a copy of the app repo's brand mark; re-copy it if the logo changes.
-- Other pages: edit the `.html` files directly.
+
+### Sign-ups and page views
+
+The early-access form posts to `https://api.chalkmind.tech/v1/waitlist`, and `public/site.js` counts page
+views at `/v1/pv` (path only, no cookies, respects Do Not Track). Results are in the admin console under
+**Website & sign-ups**: views, sign-ups and conversion rate per page, referrers and `utm_source` campaigns,
+and a CSV export of the list. Add `?utm_source=reddit&utm_campaign=launch` to links you share to see which
+posts bring sign-ups.
 
 ## Preview locally
 
 ```sh
-cd public && python3 -m http.server 8000   # open http://localhost:8000
+python3 tools/serve.py   # open http://localhost:8000 (same clean URLs as the live site)
 ```
 
 ## Deploy on the VPS (nginx, alongside other sites)
@@ -56,8 +82,9 @@ cd /var/www/chalkmind-web && sudo git pull
 
 ## Before launch
 
-- When the app is live on Google Play, change the hero/footer call to action from
-  "Join the beta" to the Play Store link: `https://play.google.com/store/apps/details?id=tech.chalkmind.app`.
+- When the app is live on Google Play, set `PLAY_URL = "https://play.google.com/store/apps/details?id=tech.chalkmind.app"`
+  in `tools/site_parts.py` and run `python3 tools/build_site.py`.
+- Submit `https://chalkmind.tech/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
 - Have the privacy policy reviewed, and update it before adding sign-in, cloud backup
   or the AI server.
 - Submit `https://chalkmind.tech/sitemap.xml` in Google Search Console.

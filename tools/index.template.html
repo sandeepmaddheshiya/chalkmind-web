@@ -80,20 +80,7 @@
   </script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="site-header">
-  <div class="wrap nav">
-    <a class="brand" href="/" aria-label="Chalkmind home">{{LOGO}}<span>Chalkmind</span></a>
-    <ul class="nav-links">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#teachers">For teachers</a></li>
-      <li><a href="#students">For students</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ul>
-    <a class="btn btn-primary btn-small" href="#get">Get early access</a>
-  </div>
-</header>
+{{HEADER}}
 
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
@@ -103,9 +90,9 @@
         <h1 id="hero-title">The whiteboard that <span class="ink">understands your handwriting.</span></h1>
         <p class="lede">Write a maths problem the way you would on paper and finish it with “=”. Chalkmind works it out, writes the answer next to yours in handwriting, and shows the steps. Then ask it to explain, give a hint, or check a student’s working.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#get">
+          <a class="btn btn-primary" href="{{CTA_HREF}}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H4z"/><path d="M4 16l-1 4h18l-1-4"/><path d="M8 9l3 3 5-5"/></svg>
-            Join the beta
+            {{CTA_LABEL}}
           </a>
           <a class="btn btn-ghost" href="#features">See what it does</a>
         </div>
@@ -337,28 +324,9 @@
     </div>
   </section>
 
-  <section class="final" id="get" aria-labelledby="get-title">
-    <div class="wrap">
-      <h2 id="get-title">Be one of the first to use Chalkmind</h2>
-      <p class="lede">Chalkmind is in testing before its Google Play launch. Teachers and students who join the beta get early access and a direct line to shape what comes next.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:support@chalkmind.tech?subject=Chalkmind%20beta&amp;body=Hi%2C%20I%27d%20like%20to%20join%20the%20Chalkmind%20beta.%0A%0AI%20am%20a%20(teacher%20%2F%20student%20%2F%20parent)%3A%20%0AMy%20Android%20device%3A%20%0AGoogle%20Play%20email%3A%20">Join the beta by email</a>
-      </div>
-      <p class="fineprint" style="color:var(--ink-2)">We’ll reply with a link to install from Google Play’s testing programme.</p>
-    </div>
-  </section>
+  {{JOIN}}
 </main>
 
-<footer class="site-footer">
-  <div class="wrap foot">
-    <span>© <span>2026</span> Chalkmind</span>
-    <nav aria-label="Footer">
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="/support">Support</a>
-      <a href="mailto:support@chalkmind.tech">support@chalkmind.tech</a>
-    </nav>
-  </div>
-</footer>
+{{FOOTER}}
 </body>
 </html>

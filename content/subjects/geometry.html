@@ -1,0 +1,123 @@
+<!--meta
+{
+ "path": "/subjects/geometry",
+ "title": "Geometry Solver: Draw the Diagram, Get the Answer | Chalkmind",
+ "description": "Draw a triangle, circle or shape, label it, and Chalkmind reads the diagram and solves for the missing side, angle or area with steps. Pythagoras, angles, areas on Android.",
+ "h1": "Draw the diagram. <span class=\"ink\">Get the missing side, angle or area.</span>",
+ "lede": "Geometry questions live in diagrams, not lines of text. Sketch the shape, label what you know, mark the right angle, and Chalkmind reads the whole drawing to find what's missing, with the reasoning.",
+ "eyebrow": "Geometry",
+ "label": "Geometry",
+ "kicker": "Subject",
+ "teaser": "Sketch and label a diagram; solve for sides, angles and areas.",
+ "cta2": [
+  "Examples",
+  "#examples"
+ ],
+ "role": "student",
+ "priority": "0.7",
+ "related": [
+  "/subjects/algebra",
+  "/handwritten-math-solver",
+  "/check-my-math",
+  "/for/teachers"
+ ],
+ "faq": [
+  [
+   "Do I need to draw accurately?",
+   "No. A rough sketch is fine as long as the labels, given values and right-angle marks are clear. Rough shapes can also snap into neat circles, rectangles and triangles."
+  ],
+  [
+   "Can it handle angles in degrees and units?",
+   "Yes. Write units and degree signs as you normally would, and the answer keeps them."
+  ],
+  [
+   "Does geometry solving need the internet?",
+   "Yes. Reading a diagram is done by the AI, which needs a connection."
+  ],
+  [
+   "Can it solve angle problems with parallel lines?",
+   "Yes. Draw the lines, mark them as parallel with arrows, and label the angles you know. It uses corresponding, alternate and co-interior angle rules."
+  ],
+  [
+   "Does it give exact answers with π and square roots?",
+   "Yes. Answers can be given exactly (like 49π or √50 = 5√2) as well as rounded, and the steps show both where useful."
+  ]
+ ]
+}
+-->
+<section class="block" id="examples">
+  <div class="wrap">
+    <div class="feature">
+      <div class="feature-visual">
+        <div class="board" style="aspect-ratio:340/300">
+          <svg viewBox="0 0 340 300" role="img" aria-label="A right triangle with legs 6 and 8 and hypotenuse x; Chalkmind answers x = 10">
+            <path class="chalk" d="M70 230 L70 70 L280 230 Z"/><path class="chalk" d="M70 206 L94 206 L94 230" style="stroke-width:2.4"/>
+            <g font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" font-size="30" font-weight="600">
+              <text x="34" y="160" fill="#f8fafc">6</text><text x="165" y="268" fill="#f8fafc">8</text>
+              <text x="190" y="138" fill="#f8fafc">x =</text><text x="248" y="138" fill="#facc15">10</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h3>Pythagoras, read from the drawing</h3>
+        <p>Draw a right triangle, mark the right angle, and label the legs 6 and 8 and the hypotenuse x. Chalkmind recognises the right angle and works out <span class="formula">x = √(6² + 8²) = √100 = 10</span>.</p>
+        <ul>
+          <li>Missing sides with Pythagoras or trigonometry</li>
+          <li>Angles in triangles, on straight lines and around points</li>
+          <li>Areas and perimeters of triangles, rectangles, circles and compound shapes</li>
+          <li>Coordinate geometry, with the line or curve plotted beside your work</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Tips</span>
+      <h2>Get the best results from a sketch</h2>
+    </div>
+    <div class="points">
+      <div class="point"><h3>Label everything you know</h3><p>Side lengths, angles and units. Write the unknown as x or a question mark.</p></div>
+      <div class="point"><h3>Mark special features</h3><p>Right-angle squares, equal-length ticks and parallel arrows tell Chalkmind which rules apply.</p></div>
+      <div class="point"><h3>Select the whole problem</h3><p>Circle the diagram and any written question together so nothing is missed.</p></div>
+    </div>
+  </div>
+</section>
+<!-- data-expanded -->
+<section class="block">
+  <div class="wrap narrow prose" style="padding:0">
+    <span class="kicker">Worked examples</span>
+    <h2 style="margin-top:.2em">Typical geometry questions, step by step</h2>
+    <div class="example"><b>Missing angle in a triangle</b>
+      <p>A triangle has angles 47° and 68°. Find the third angle, x.</p>
+      <ol><li>Angles in a triangle add up to 180°.</li><li><span class="formula">x = 180° − 47° − 68° = 65°</span></li></ol>
+    </div>
+    <div class="example"><b>Area of a compound shape</b>
+      <p>An L-shape is a 10 cm × 6 cm rectangle with a 4 cm × 3 cm rectangle cut from one corner.</p>
+      <ol><li>Whole rectangle: <span class="formula">10 × 6 = 60 cm²</span></li><li>Cut-out: <span class="formula">4 × 3 = 12 cm²</span></li><li>Area: <span class="formula">60 − 12 = 48 cm²</span></li></ol>
+    </div>
+    <div class="example"><b>Circle</b>
+      <p>A circle has radius 7 cm. Find its area and circumference.</p>
+      <ol><li>Area: <span class="formula">πr² = π × 7² = 49π ≈ 153.9 cm²</span></li><li>Circumference: <span class="formula">2πr = 14π ≈ 44.0 cm</span></li></ol>
+    </div>
+    <div class="example"><b>Right-angled trigonometry</b>
+      <p>In a right triangle the hypotenuse is 10 cm and one angle is 30°. Find the side opposite the 30° angle.</p>
+      <ol><li>Use <span class="formula">sin θ = opposite ÷ hypotenuse</span></li><li><span class="formula">opposite = 10 × sin 30° = 10 × 0.5 = 5 cm</span></li></ol>
+    </div>
+    <!--cta-->
+    <h2>Common geometry mistakes it helps you catch</h2>
+    <ul>
+      <li><b>Using Pythagoras on a triangle without a right angle.</b> If the diagram has no right-angle mark, Pythagoras doesn't apply.</li>
+      <li><b>Mixing up the hypotenuse.</b> It's always the side opposite the right angle, and the longest side.</li>
+      <li><b>Radius versus diameter.</b> Using the diameter in πr² makes the area four times too big.</li>
+      <li><b>Forgetting square units.</b> Areas are in cm² or m², not cm or m.</li>
+      <li><b>Calculator in radians.</b> sin 30 in radian mode is about −0.99, not 0.5.</li>
+    </ul>
+    <p>Write your own solution and use <a href="/check-my-math">Check my work</a>: it finds the first line where your reasoning goes wrong, including mistakes like these.</p>
+    <h2>For teachers</h2>
+    <p>Geometry is easier to teach when the diagram and the working sit side by side. Sketch a shape roughly and let it snap into a neat triangle, rectangle or circle, label it live, and work through the solution beside it. Generate a set of practice questions on the same topic for students to try next, and export the page as a PDF for anyone who missed the lesson.</p>
+  </div>
+</section>
